@@ -11,7 +11,7 @@
           {% if post.categories %}
           <div class="row-fluid">
           {% for category in post.categories %}
-          <span class="badge">{{ category}}</span>
+          <span class="badge"><a href="{{ root_url }}{{category | downcase}}">{{ category}}</a></span>
           {% endfor %}
           </div>
           {% endif %}
@@ -20,7 +20,13 @@
       <h1 class="link"><a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a></h1>
 	  {{ content | excerpt }}
       {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
-    </div>
+	  
+	  {% if excerpted == 'true' %}
+      <footer>
+      <a rel="badge" class="badge" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
+      </footer>
+      {% endif %}
+	  
     </div>
   </div>
 {% else %}

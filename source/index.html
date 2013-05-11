@@ -3,8 +3,8 @@ layout: default
 ---
 <div class="jumbotron">
   <div class="container">
-    minimaxir
-    <h3 class="tagline">max woolf's internet blog thingy</h3>
+    Max Woolf 
+    <h3 class="tagline">CMU alum, software QA engineer in the SF Bay Area</h3>
   </div>
 </div>
 <div class="blog-index">
@@ -20,11 +20,11 @@ layout: default
   {% endfor %}
   <div class="pagination">
     {% if paginator.next_page %}
-    <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
+    <a class="prev badge" href="{{paginator.next_page}}">&larr; Older</a>
     {% endif %}
 
     {% if paginator.previous_page %}
-    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
+    <a class="next badge" href="{{paginator.previous_page}}">Newer &rarr;</a>
     {% endif %}
   </div>
 </div>
