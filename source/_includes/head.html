@@ -7,7 +7,38 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   <meta name="author" content="{{ site.author }}">
 
-  {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+  {% capture header %}
+ 
+  {% if page.title %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}" />
+    {% if page.url %}
+      <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    {% endif %}
+  {% else %}
+    <meta property="og:type" content="website" />	
+    <meta property="og:url" content="{{ site.url }}" />
+  {% endif %}
+ 
+  {% if site.title %}
+    <meta property="og:site_name" content="{{ site.title }}" />
+  {% endif %}
+ 
+<!--  {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+  <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" /> -->
+ 
+
+  {% if site.owner_link %}
+    <meta property="article:author" content="{{ site.owner_link }}" />
+  {% endif %}
+ 
+  {% endcapture %}{{ header | strip_newlines }}
+ 
+  <meta property="og:locale"    content="en_us" />
+  <meta property="fb:admins"    content="272535582777707" />
+  <meta property="og:image"     content="{{ site.url }}/MaxFB.png" />
+  
+{% capture description %}{{ site.description}}{% endcapture %}
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 
