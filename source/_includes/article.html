@@ -11,10 +11,11 @@
           {% if post.categories %}
           <div class="row-fluid">
           {% for category in post.categories %}
-          <span class="badge"><a href="{{ root_url }}{{category | downcase}}">{{ category}}</a></span>
+          <span class="badge"><a href="{{ site.root }}{{category | downcase}}">{{ category}}</a></span>
           {% endfor %}
           </div>
           {% endif %}
+
     </div>
     <div class="span10">
       <h1 class="link"><a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a></h1>
