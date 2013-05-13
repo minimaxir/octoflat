@@ -20,17 +20,17 @@
   <meta name="twitter:title" content="{{ site.title }}">
 {% endif %}
 {% if page.url %}
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:url" content="http://{{ site.url }}{{ page.url }}">
 {% endif %}
 {% if page.summary %}
-  <meta name="twitter:description" content="{{ page.summary | truncatewords:20}}...">
+  <meta name="twitter:description" content="{{ page.summary | truncatewords:30}}...">
 {% else %}
   <meta name="twitter:description" content="{{ site.description }}">
 {% endif %}
 {% if page.image %}
-  <meta name="twitter:image:src" content="{{ site.url }}/img/{{ page.image }}">
+  <meta name="twitter:image:src" content="http://{{ site.url }}/img/{{ page.image }}">
 {% else %}
-  <meta name="twitter:image:src" content="{{ site.url }}/MaxFB.png">
+  <meta name="twitter:image:src" content="http://{{ site.url }}/MaxFB.png">
 {% endif %}
  
  <meta content="{{ site.title }}" property="og:site_name">
@@ -45,18 +45,18 @@
   <meta content="website" property="og:type">
 {% endif %}
 {% if page.summary %}
-  <meta content="{{ page.summary | truncatewords:20}}..." property="og:description">
+  <meta content="{{ page.summary | truncatewords:30}}..." property="og:description">
 {% else %}
   <meta content="{{ site.description }}" property="og:description">
 {% endif %}
 {% if page.url %}
-  <meta content="{{ site.url }}{{ page.url }}" property="og:url">
+  <meta content="http://{{ site.url }}{{ page.url }}" property="og:url">
 {% endif %}
 
 {% if page.image %}
-  <meta content="{{ site.url }}/img/{{ page.image }}" property="og:image">
+  <meta content="http://{{ site.url }}/img/{{ page.image }}" property="og:image">
 {% else %}
-  <meta content="{{ site.url }}/MaxFB.png" property="og:image">
+  <meta content="http://{{ site.url }}/MaxFB.png" property="og:image">
 {% endif %}
 {% if page.categories %}
   {% for category in page.categories limit:1 %}
@@ -69,20 +69,11 @@
   {% endfor %}
 {% endif %}
  
- 
-<!--  {% capture description %}{% if page.excerpt %}{{ page.excerpt }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
-  <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" /> -->
- 
-
-  {% if site.owner_link %}
-    <meta property="article:author" content="{{ site.owner_link }}" />
-  {% endif %}
- 
   {% endcapture %}{{ header }}
  
   <meta property="og:locale"    content="en_us" />
-  <meta property="fb:admins"    content="272535582777707" />
-  <meta property="og:image"     content="{{ site.url }}/MaxFB.png" />
+  
+
   
 <!--{% capture description %}{{ site.description}}{% endcapture %}
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
