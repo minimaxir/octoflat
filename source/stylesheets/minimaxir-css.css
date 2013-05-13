@@ -139,6 +139,9 @@ margin-bottom: 10px;
 margin-bottom: 0px;
 }
 
+#global-nav, #thread-votes {
+display: none !important;
+}
 
 
 @media (max-width: 979px) {
@@ -191,6 +194,10 @@ margin-right: 30px !important;
 	
 	.jumbotron {
 	font-size: 40px;
+}
+
+.span4 {
+margin: 10px 0;
 }
 	
 }
