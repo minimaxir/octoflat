@@ -2,9 +2,13 @@
 {% unless category == '0' %}
 <span class="categories">
   {% if post %}
-    {{ post.categories | category_links }}
+    {% for category in post.categories %}
+          <span class="badge"><a href="{{ site.root }}{{category | downcase}}">{{ category}}</a></span>
+          {% endfor %}
   {% else %}
-    {{ page.categories | category_links }}
+    {% for category in page.categories %}
+          <span class="badge"><a href="{{ site.root }}{{category | downcase}}">{{ category}}</a></span>
+     {% endfor %}
   {% endif %}
 </span>
 {% endunless %}
